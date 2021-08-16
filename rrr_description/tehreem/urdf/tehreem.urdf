@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="tehreem">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-6.24500451351651E-17 -1.49186218934005E-16 0.0290820382955607"
+        rpy="0 0 0" />
+      <mass
+        value="0.0665348672587713" />
+      <inertia
+        ixx="0.000134459472909859"
+        ixy="1.14603188715535E-19"
+        ixz="-2.00386528210075E-20"
+        iyy="0.00013445947290986"
+        iyz="1.91287847184748E-20"
+        izz="0.000244427043067851" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tehreem/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tehreem/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="link1">
+    <inertial>
+      <origin
+        xyz="0.00899945504963388 0.0675106811221554 1.38777878078145E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.0542610787557387" />
+      <inertia
+        ixx="2.96311644478969E-05"
+        ixy="-1.42050744888731E-06"
+        ixz="2.42943233369902E-21"
+        iyy="3.77959457351572E-05"
+        iyz="-9.93260819216928E-22"
+        izz="2.39681172828573E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tehreem/meshes/link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tehreem/meshes/link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint1"
+    type="revolute">
+    <origin
+      xyz="0 0 0.04"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="link1" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="10"
+      velocity="3.14" />
+  </joint>
+  <link
+    name="link2">
+    <inertial>
+      <origin
+        xyz="3.10255300330076E-06 0.065 -0.0462967591551163"
+        rpy="0 0 0" />
+      <mass
+        value="0.0264323022309454" />
+      <inertia
+        ixx="6.54085091736833E-05"
+        ixy="-1.75759336555267E-20"
+        ixz="6.41854689425108E-21"
+        iyy="8.01926936084795E-06"
+        iyz="-9.41965105811981E-21"
+        izz="6.26480773704926E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tehreem/meshes/link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tehreem/meshes/link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint2"
+    type="revolute">
+    <origin
+      xyz="0.040997 0.14802 0.0465"
+      rpy="0 0 -0.38088" />
+    <parent
+      link="link1" />
+    <child
+      link="link2" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="10"
+      velocity="3.14" />
+  </joint>
+  <link
+    name="link3">
+    <inertial>
+      <origin
+        xyz="-5.55111512312578E-17 0.0841958360378099 0.0425766525613882"
+        rpy="0 0 0" />
+      <mass
+        value="0.0320911265483328" />
+      <inertia
+        ixx="0.000136456819110822"
+        ixy="6.43745039913268E-20"
+        ixz="-2.13748363582812E-20"
+        iyy="4.68765596817674E-05"
+        iyz="5.32902400775416E-20"
+        izz="9.57155265710446E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tehreem/meshes/link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tehreem/meshes/link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint3"
+    type="revolute">
+    <origin
+      xyz="0 0.13 -0.091"
+      rpy="0 0 -1.5782" />
+    <parent
+      link="link2" />
+    <child
+      link="link3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="10"
+      velocity="3.14" />
+  </joint>
+</robot>
