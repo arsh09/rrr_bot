@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
-     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
-     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
-<robot
-  name="tehreem">
-  <link
-    name="base_link">
+
+<robot name="rrr_bot">
+
+  <!-- all links  -->
+  <link name="world"/>
+
+  <link name="base_link">
     <inertial>
       <origin
         xyz="-6.24500451351651E-17 -1.49186218934005E-16 0.0290820382955607"
@@ -26,7 +26,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://tehreem/meshes/base_link.STL" />
+          filename="package://rrr_description/meshes/base_link.STL" scale="0.001 0.001 0.001"/>
       </geometry>
       <material
         name="">
@@ -40,12 +40,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://tehreem/meshes/base_link.STL" />
+          filename="package://rrr_description/meshes/base_link.STL" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
-  <link
-    name="link1">
+
+  <link name="link1">
     <inertial>
       <origin
         xyz="0.00899945504963388 0.0675106811221554 1.38777878078145E-17"
@@ -66,7 +66,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://tehreem/meshes/link1.STL" />
+          filename="package://rrr_description/meshes/link1.STL" scale="0.001 0.001 0.001"/>
       </geometry>
       <material
         name="">
@@ -80,30 +80,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://tehreem/meshes/link1.STL" />
+          filename="package://rrr_description/meshes/link1.STL" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
-  <joint
-    name="joint1"
-    type="revolute">
-    <origin
-      xyz="0 0 0.04"
-      rpy="1.5708 0 0" />
-    <parent
-      link="base_link" />
-    <child
-      link="link1" />
-    <axis
-      xyz="0 1 0" />
-    <limit
-      lower="-1.57"
-      upper="1.57"
-      effort="10"
-      velocity="3.14" />
-  </joint>
-  <link
-    name="link2">
+
+  <link name="link2">
     <inertial>
       <origin
         xyz="3.10255300330076E-06 0.065 -0.0462967591551163"
@@ -124,7 +106,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://tehreem/meshes/link2.STL" />
+          filename="package://rrr_description/meshes/link2.STL" scale="0.001 0.001 0.001"/>
       </geometry>
       <material
         name="">
@@ -138,30 +120,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://tehreem/meshes/link2.STL" />
+          filename="package://rrr_description/meshes/link2.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </collision>
   </link>
-  <joint
-    name="joint2"
-    type="revolute">
-    <origin
-      xyz="0.040997 0.14802 0.0465"
-      rpy="0 0 -0.38088" />
-    <parent
-      link="link1" />
-    <child
-      link="link2" />
-    <axis
-      xyz="0 0 -1" />
-    <limit
-      lower="-1.57"
-      upper="1.57"
-      effort="10"
-      velocity="3.14" />
-  </joint>
-  <link
-    name="link3">
+
+  <link name="link3">
     <inertial>
       <origin
         xyz="-5.55111512312578E-17 0.0841958360378099 0.0425766525613882"
@@ -182,7 +146,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://tehreem/meshes/link3.STL" />
+          filename="package://rrr_description/meshes/link3.STL" scale="0.001 0.001 0.001"/>
       </geometry>
       <material
         name="">
@@ -196,26 +160,45 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://tehreem/meshes/link3.STL" />
+          filename="package://rrr_description/meshes/link3.STL" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
-  <joint
-    name="joint3"
-    type="revolute">
-    <origin
-      xyz="0 0.13 -0.091"
-      rpy="0 0 -1.5782" />
-    <parent
-      link="link2" />
-    <child
-      link="link3" />
-    <axis
-      xyz="0 0 1" />
-    <limit
-      lower="-1.57"
-      upper="1.57"
-      effort="10"
-      velocity="3.14" />
+
+  <!-- all joints -->
+  <joint name="joint_world" type="fixed">
+    <origin  xyz="0 0 0"  rpy="0 0 0" />
+    <parent link="world" />
+    <child link="base_link" />
   </joint>
+
+  <joint name="joint1" type="revolute">
+    <origin xyz="0 0 0.04" rpy="1.5708 0 0" />
+    <parent link="base_link" />
+    <child link="link1" />
+    <axis  xyz="0 1 0" />
+    <limit lower="-1.57" upper="1.57"  effort="10" velocity="3.14" />
+  </joint>
+
+  <joint name="joint2"  type="revolute">
+    <origin xyz="0.040997 0.14802 0.0465" rpy="0 0 -0.38088" />
+    <parent link="link1" />
+    <child link="link2" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-1.57" upper="1.57" effort="10" velocity="3.14" />
+  </joint>
+
+  <joint name="joint3" type="revolute">
+    <origin xyz="0 0.13 -0.091" rpy="0 0 -1.5782" />
+    <parent link="link2" />
+    <child link="link3" />
+    <axis  xyz="0 0 1" />
+    <limit lower="-1.57" upper="1.57" effort="10" velocity="3.14" />
+  </joint>
+
+
+  <!-- all transmission -->
+
+  <!-- all gazebo plugin -->
+
 </robot>
