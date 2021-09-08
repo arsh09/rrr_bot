@@ -1,0 +1,21 @@
+<launch>
+
+  <!-- this opens gazebo and put the robot in gazebo -->
+  <include
+    file="$(find rrr_description)/launch/gazebo.launch" />
+
+
+    <!-- Load joint controller configurations to parameter server -->
+    <!-- think of parameter server as global variables which you can  -->
+    <!-- access using the command 'rosparam list' in the terminal -->
+    <rosparam file="$(find rrr_control)/config/rrr_controller.yaml" command="load" />
+
+
+    <!-- Load the controller from parameter server to simulation -->
+    <node name="rrr_controller_spawner" pkg="controller_manager" type="spawner" args="joint_state_controller arm_controller" respawn="false" output="screen"/>
+
+
+    <!-- start trajectory controller UI to control each joint separately -->
+    <node name="rrr_control_ui" pkg="rqt_joint_trajectory_controller" type="rqt_joint_trajectory_controller" respawn="false" output="screen"/>
+
+</launch>

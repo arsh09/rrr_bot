@@ -1,0 +1,18 @@
+# This file contains the controller configuration. 
+
+# state controller means it will publish a topic named '/joint_states' 
+# which is used by other controller. This topic i.e. /joint_states
+# is basically the position, velocity and torque of each joint (in simulation for now)
+joint_state_controller:
+  type: "joint_state_controller/JointStateController"
+  publish_rate: 125  
+
+# this is a position (trajectory) controller controller. 
+# Because all three joints are controlled at the same time 
+# If you want, you can load controller for each joint separately
+arm_controller:
+  type: "position_controllers/JointTrajectoryController"
+  joints:
+    - joint1
+    - joint2
+    - joint3
